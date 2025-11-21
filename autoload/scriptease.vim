@@ -400,7 +400,7 @@ function! scriptease#messages_command(bang, count, arg, mods) abort
   if exists(':chistory')
     call setqflist([], 'r', {'title': ':Messages'})
   endif
-  exe a:mods 'copen'
+  exe substitute(a:mods, '<mods>', '', '') 'copen'
   $
   call search('^[^|]', 'bWc')
   return ''
